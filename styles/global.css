@@ -1,11 +1,24 @@
+:root {
+  --gradient: linear-gradient(
+    180deg,
+    rgba(140, 73, 207, 0.15) 0%,
+    rgba(140, 72, 207, 0.05) 100%
+  );
+
+  --font-title: 'Pacifico', cursive;
+  --font-body: 'Balsamiq Sans', sans-serif;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  line-height: 1.6;
-  font-size: 18px;
+  font-family: var(--font-body);
+  line-height: 1.1;
+  font-size: 16px;
+
+  color: var(--color-text);
+  background: var(--color-background);
 }
 
 * {
@@ -13,7 +26,7 @@ body {
 }
 
 a {
-  color: #0070f3;
+  color: var(--color-primary);
   text-decoration: none;
 }
 
@@ -21,7 +34,7 @@ a:hover {
   text-decoration: underline;
 }
 
-img {
-  max-width: 100%;
-  display: block;
+p {
+  padding: 10px 0;
+  margin: 0;
 }

@@ -1,18 +1,31 @@
 import Head from 'next/head'
 import styles from './layout.module.css'
-import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
+import PageTopBend from './page-top-bend'
+import SunIcon from './icons/sun'
+import MoonIcon from './icons/moon'
+import { useCallback } from 'react'
+import LightSwitcher from './light-switcher'
 
-const name = '[Your Name]'
-export const siteTitle = 'Next.js Sample Website'
+export const siteTitle = 'Corné Dorrestijn'
 
 export default function Layout({
   children,
-  home
+  home,
 }: {
   children: React.ReactNode
   home?: boolean
 }) {
+  const handleLightSwitchClick = useCallback(() => {
+    const currentMode = window.localStorage.getItem('color-mode')
+    localStorage.setItem(
+      'color-mode',
+      currentMode === 'dark' ? 'light' : 'dark',
+    )
+    // @ts-ignore
+    window.updateDarkModeProperties?.()
+  }, [])
+
   return (
     <div className={styles.container}>
       <Head>
@@ -24,49 +37,49 @@ export default function Layout({
         <meta
           property="og:image"
           content={`https://og-image.now.sh/${encodeURI(
-            siteTitle
+            siteTitle,
           )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
         />
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital,wght@0,400;0,700;1,400&family=Pacifico&display=swap"
+          rel="stylesheet"
+        />
+        <LightSwitcher />
       </Head>
       <header className={styles.header}>
-        {home ? (
-          <>
-            <img
-              src="/images/profile.jpg"
-              className={`${styles.headerHomeImage} ${utilStyles.borderCircle}`}
-              alt={name}
-            />
-            <h1 className={utilStyles.heading2Xl}>{name}</h1>
-          </>
-        ) : (
-          <>
-            <Link href="/">
-              <a>
-                <img
-                  src="/images/profile.jpg"
-                  className={`${styles.headerImage} ${utilStyles.borderCircle}`}
-                  alt={name}
-                />
-              </a>
-            </Link>
-            <h2 className={utilStyles.headingLg}>
-              <Link href="/">
-                <a className={utilStyles.colorInherit}>{name}</a>
-              </Link>
-            </h2>
-          </>
-        )}
-      </header>
-      <main>{children}</main>
-      {!home && (
-        <div className={styles.backToHome}>
+        <div className={styles.headerContent}>
           <Link href="/">
-            <a>← Back to home</a>
+            <a className={styles.name}>Corné Dorrestijn</a>
           </Link>
+          <div className={styles.links}>
+            <button
+              className={styles.lightSwitch}
+              onClick={handleLightSwitchClick}
+              aria-label="Switch light mode"
+            >
+              <div className={styles.lightSwitchIcons}>
+                <MoonIcon />
+                <SunIcon />
+              </div>
+            </button>
+            <Link href="/">
+              <a className={styles.link}>Blog</a>
+            </Link>
+            <Link href="/">
+              <a className={styles.link}>Snippets</a>
+            </Link>
+            <Link href="/">
+              <a className={styles.link}>About Me</a>
+            </Link>
+          </div>
         </div>
-      )}
+      </header>
+      <main className={styles.main}>
+        <PageTopBend className={styles.pageTop} />
+        <div className={styles.content}>{children}</div>
+      </main>
     </div>
   )
 }
