@@ -1,7 +1,7 @@
 :root {
   --gradient: linear-gradient(
     180deg,
-    rgba(140, 73, 207, 0.15) 0%,
+    rgba(140, 73, 207, 0.25) 0%,
     rgba(140, 72, 207, 0.05) 100%
   );
 
