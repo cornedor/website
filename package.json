@@ -13,6 +13,7 @@
     "date-fns": "^2.11.1",
     "gray-matter": "^4.0.2",
     "next": "9.3.5",
+    "next-mdx-enhanced": "^3.0.0",
     "preact": "^10.2.1",
     "preact-render-to-string": "^5.1.4",
     "react": "github:preact-compat/react#1.0.0",
