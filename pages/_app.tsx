@@ -1,6 +1,24 @@
 import '../styles/global.css'
+import '../styles/prism.css'
 import { AppProps } from 'next/app'
+import { ReactNode } from 'react'
+import { MDXProvider } from '@mdx-js/react'
+import Title from '../components/title'
+import Subtitle from '../components/subtitle'
+import SnippetLoader from '../components/snippet-loader'
+
+const mapping = {
+  h1: Title,
+  h2: Subtitle,
+  code: SnippetLoader,
+  // TODO: needs more compact styling for inline
+  // inlineCode: SnippetLoader,
+}
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <MDXProvider components={mapping}>
+      <Component {...pageProps} />
+    </MDXProvider>
+  )
 }

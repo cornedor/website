@@ -19,6 +19,9 @@ body {
 
   color: var(--color-text);
   background: var(--color-background);
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 * {

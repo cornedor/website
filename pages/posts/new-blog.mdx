@@ -1,7 +1,107 @@
 ---
-title: 'Introduction'
+title: 'My new fancy blog'
 ---
 
-Here's some _markdown_ **content**!
+import DarkModeSwitcher from '../../components/dark-mode-switcher'
 
-## Subtitles need styling
+Welcome to my new blog, on this page i'm currently testing out features i'm
+implementing on this website. For example to _test_ some **markdown** features.
+Or to test if I can inlcude React components like <DarkModeSwitcher /> using
+these MDX files.
+
+## Snippets
+
+Below are some syntax highlighted snippets using refractor.
+
+TSX:
+
+```tsx
+import Refractor from 'react-refractor'
+import { useEffect, useState } from 'react'
+
+export type SnippetProps = Refractor.Props
+
+const languageCache: string[] = []
+
+const Snippet = ({ language, ...props }: Refractor.Props) => {
+  const [isLanguageLoaded, setIsLanguageLoaded] = useState<boolean>(false)
+  useEffect(() => {
+    if (!languageCache.includes(language)) {
+      import(
+        /* webpackMode: "lazy", webpackChunkName: "refractor-lang-[request]" */
+        `refractor/lang/${language}`
+      ).then((lang) => {
+        Refractor.registerLanguage(lang.default)
+        languageCache.push(language)
+        setIsLanguageLoaded(true)
+      })
+    } else {
+      setIsLanguageLoaded(true)
+    }
+  }, [language])
+
+  return isLanguageLoaded ? (
+    <Refractor {...props} language={language} />
+  ) : (
+    <pre className="language-clike">
+      <code className="language-clike">{props.value}</code>
+    </pre>
+  )
+}
+
+export default Snippet
+```
+
+OCaml:
+
+```ocaml
+# let rec eval env = function
+    | Num i -> i
+    | Var x -> List.assoc x env
+    | Let (x, e1, in_e2) ->
+       let val_x = eval env e1 in
+       eval ((x, val_x) :: env) in_e2
+    | Binop (op, e1, e2) ->
+       let v1 = eval env e1 in
+       let v2 = eval env e2 in
+       eval_op op v1 v2
+  and eval_op op v1 v2 =
+    match op with
+    | "+" -> v1 + v2
+    | "-" -> v1 - v2
+    | "*" -> v1 * v2
+    | "/" -> v1 / v2
+    | _ -> failwith ("Unknown operator: " ^ op);;
+val eval : (string * int) list -> expression -> int = <fun>
+val eval_op : string -> int -> int -> int = <fun>
+
+```
+
+Clojure:
+
+```clojure
+(ns example
+  (:require [reagent.core :as r]))
+
+(def click-count (r/atom 0))
+
+(defn counting-component []
+  [:div
+   "The atom " [:code "click-count"] " has value: "
+   @click-count ". "
+   [:input {:type "button" :value "Click me!"
+            :on-click #(swap! click-count inc)}]])
+```
+
+C++:
+
+```cpp
+void Recorder::setCodec(const Codec &codec)
+{
+    if (this->codec() != codec)
+    {
+        settings.setValue(CODEC, codec);
+        emit this->codecChanged();
+    }
+}
+```
