@@ -19,6 +19,7 @@ const fonts =
 
 export default function Layout({ children, title }: LayoutProps) {
   const [showFont, setShowFont] = useState(false)
+  const fullTitle = `${siteTitle} - ${title}`
   return (
     <div className={styles.container}>
       <Head>
@@ -33,7 +34,8 @@ export default function Layout({ children, title }: LayoutProps) {
             siteTitle,
           )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
         />
-        <meta name="og:title" content={siteTitle} />
+        <meta name="og:title" content={fullTitle} />
+        <title>{fullTitle}</title>
         <meta name="twitter:card" content="summary_large_image" />
         <link
           rel="preconnect"
