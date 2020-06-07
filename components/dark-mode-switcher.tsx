@@ -5,7 +5,7 @@ import SunIcon from './icons/sun'
 
 const DarkModeSwitcher = (props: any) => {
   const handleLightSwitchClick = useCallback(() => {
-    const currentMode = window.localStorage.getItem('color-mode')
+    const currentMode = global.getLightOrDarkMode()
     localStorage.setItem(
       'color-mode',
       currentMode === 'dark' ? 'light' : 'dark',
