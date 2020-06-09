@@ -1,4 +1,9 @@
 const withMdxEnhanced = require('next-mdx-enhanced')
+const withTM = require('next-transpile-modules')([
+  'bs-platform',
+  'bs-css',
+  'bs-css-emotion',
+])
 
 module.exports = withMdxEnhanced({
   layoutPath: 'layouts',
@@ -10,4 +15,8 @@ module.exports = withMdxEnhanced({
     process: (mdxContent, frontMatter) => {},
     phase: 'prebuild|loader|both',
   },
-})()
+})(
+  withTM({
+    pageExtensions: ['jsx', 'js', 'bs.js', 'ts', 'tsx'],
+  }),
+)
