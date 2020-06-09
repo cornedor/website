@@ -32,6 +32,7 @@
     "@types/node": "^13.11.0",
     "@types/react": "^16.9.32",
     "@types/refractor": "^2.8.0",
+    "babel-plugin-import-glob-array": "^0.2.0",
     "bs-platform": "^7.3.2",
     "concurrently": "^5.2.0",
     "next-transpile-modules": "^3.3.0",

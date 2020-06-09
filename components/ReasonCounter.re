@@ -16,6 +16,7 @@ module Styles = {
   let counter =
     style([
       background(hex("ddd")),
+      color(black),
       display(inlineBlock),
       padding2(~v=px(5), ~h=px(10)),
     ]);
