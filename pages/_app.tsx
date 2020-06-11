@@ -4,7 +4,7 @@ import { AppProps } from 'next/app'
 import { ReactNode } from 'react'
 import { MDXProvider } from '@mdx-js/react'
 import Title from '../components/Title.gen'
-import Subtitle from '../components/SubTitle.gen'
+import Subtitle from '../components/Subtitle.gen'
 import SnippetLoader from '../components/snippet-loader'
 
 const mapping = {
