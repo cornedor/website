@@ -5,6 +5,8 @@ bs
 .merlin
 lib/
 *.bs.js
+*.gen.tsx
+*.gen.ts
 .bsb.lock
 
 # dependencies

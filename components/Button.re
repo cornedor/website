@@ -4,11 +4,10 @@ module Styles = {
 
   let button =
     style([
-      unsafe("background-color", "var(--color-primary)"),
+      unsafe("backgroundColor", "var(--color-primary)"),
       borderStyle(none),
       padding2(~v=px(5), ~h=px(10)),
       boxShadow(Shadow.box(~y=px(3), ~blur=px(5), rgba(0, 0, 0, 0.3))),
-      unsafe("-webkit-overflow-scrolling", "touch"),
       cursor(pointer),
       fontSize(inherit_),
       hover([opacity(0.8)]),

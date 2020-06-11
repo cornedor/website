@@ -1,9 +1,9 @@
 import Head from 'next/head'
 import styles from './layout.module.css'
 import Link from 'next/link'
-import PageTopBend from '../components/page-top-bend'
+import PageTopBend from '../components/PageTopBend.gen'
 import LightSwitcher from '../components/dark-mode-manager'
-import Title from '../components/title'
+import Title from '../components/Title.gen'
 import DarkModeSwitcher from '../components/dark-mode-switcher'
 import { ReactNode, useLayoutEffect, useState } from 'react'
 

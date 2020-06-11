@@ -35,6 +35,7 @@
     "babel-plugin-import-glob-array": "^0.2.0",
     "bs-platform": "^7.3.2",
     "concurrently": "^5.2.0",
+    "gentype": "^3.25.0",
     "next-transpile-modules": "^3.3.0",
     "reason-react": "^0.8.0",
     "typescript": "^3.8.3"

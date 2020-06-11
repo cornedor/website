@@ -1,6 +1,7 @@
 // @ts-ignore so weird this doesn't work ;-)
 import { frontMatter as posts } from '../pages/posts/*.mdx'
 import Link from 'next/link'
+import BlogPost from './BlogPost.gen'
 
 interface BlogPost {
   title?: string
@@ -15,14 +16,11 @@ function getSlugFromResourcePath({ __resourcePath }: BlogPost) {
 const BlogPosts = () => (
   <>
     {posts.map((post: BlogPost) => (
-      <Link href={getSlugFromResourcePath(post)}>
-        <a>
-          <article>
-            <h1>{post.title}</h1>
-            <p>{post.excerpt}</p>
-          </article>
-        </a>
-      </Link>
+      <BlogPost
+        title={post.title}
+        excerpt={post.excerpt}
+        path={post.__resourcePath}
+      />
     ))}
   </>
 )

@@ -3,8 +3,8 @@ import '../styles/prism.css'
 import { AppProps } from 'next/app'
 import { ReactNode } from 'react'
 import { MDXProvider } from '@mdx-js/react'
-import Title from '../components/title'
-import Subtitle from '../components/subtitle'
+import Title from '../components/Title.gen'
+import Subtitle from '../components/SubTitle.gen'
 import SnippetLoader from '../components/snippet-loader'
 
 const mapping = {
