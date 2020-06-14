@@ -1,4 +1,4 @@
-import Layout from '../components/layout'
+import Layout from '../components/Layout.gen'
 
 export default function DefaultLayout(frontMatter: any) {
   return ({ children }: any) => (

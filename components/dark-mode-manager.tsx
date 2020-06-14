@@ -1,4 +1,4 @@
-const LightSwitcher = () => (
+const DarkModeManager = () => (
   <script
     dangerouslySetInnerHTML={{
       __html: `
@@ -51,4 +51,4 @@ const LightSwitcher = () => (
   />
 )
 
-export default LightSwitcher
+export default DarkModeManager

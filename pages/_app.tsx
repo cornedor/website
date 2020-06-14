@@ -6,6 +6,8 @@ import { MDXProvider } from '@mdx-js/react'
 import Title from '../components/Title.gen'
 import Subtitle from '../components/Subtitle.gen'
 import SnippetLoader from '../components/snippet-loader'
+import DarkModeManager from '../components/dark-mode-manager'
+import Head from 'next/head'
 
 const mapping = {
   h1: Title,
@@ -18,6 +20,9 @@ const mapping = {
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <MDXProvider components={mapping}>
+      <Head>
+        <DarkModeManager />
+      </Head>
       <Component {...pageProps} />
     </MDXProvider>
   )

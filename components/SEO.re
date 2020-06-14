@@ -1,6 +1,6 @@
 [@react.component]
 let make = (~title) => {
-  let fullTitle = "Corné Dorrestijn - " ++ title;
+  let fullTitle = {j|Corné Dorrestijn|j} ++ title;
 
   <Next.Head>
     <link rel="icon" href="/favicon.ico" />
