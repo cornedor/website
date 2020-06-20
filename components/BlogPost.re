@@ -5,7 +5,7 @@ module Styles = {
 };
 
 let getSlugFromResourcePath = (path: string) => {
-  Js.String.replaceByRe([%re "/\.(mdx|tsx?|jsx?|ml|re)/gi"], "", path);
+  Js.String.replaceByRe([%re "/.(mdx|tsx?|jsx?|ml|re)/gi"], "", path);
 };
 
 [@react.module]
