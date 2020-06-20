@@ -40,8 +40,9 @@ module Styles = {
   let content =
     style([
       maxWidth(px(792)),
-      padding(px(40)),
+      padding2(~v=px(40), ~h=px(10)),
       margin2(~v=zero, ~h=auto),
+      media("(min-width: 500px)", [padding(px(40))]),
     ]);
 
   let pageTop =
@@ -52,7 +53,7 @@ module Styles = {
       height(vw(8.)),
       bottom(pct(100.)),
       objectFit(fill),
-      unsafe("color", "var(--color-background)"),
+      unsafe("color", "var(--color-background, white)"),
     ]);
 };
 

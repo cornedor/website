@@ -55,6 +55,14 @@ pre[class*='language-'] {
   border-radius: 6px;
 }
 
+@media (min-width: 900px) {
+  :not(pre) > code[class*='language-'],
+  pre[class*='language-'] {
+    margin-left: -80px;
+    margin-right: -80px;
+  }
+}
+
 /* Inline code */
 :not(pre) > code[class*='language-'] {
   padding: 0.1em;
