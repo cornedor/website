@@ -46,6 +46,8 @@ const DarkModeManager = () => (
       }
     }
     updateDarkModeProperties();
+
+    window.addEventListener('storage', updateDarkModeProperties)
   `,
     }}
   />
