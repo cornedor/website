@@ -72,7 +72,7 @@ let make = (~children, ~title, ()) =>
         </Next.Link>
         <div className=Styles.links>
           <DarkModeSwitcher />
-          <Next.Link href="/">
+          <Next.Link href="/posts">
             <a className=Styles.link> {ReasonReact.string("Blog")} </a>
           </Next.Link>
           <Next.Link href="/">
