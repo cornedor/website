@@ -1,7 +1,6 @@
 {
   "name": "corne-info",
-  "sources": [
-    {
+  "sources": [{
       "dir": "components",
       "subdirs": true
     },
@@ -14,8 +13,10 @@
       "subdirs": true
     }
   ],
-  "bs-dependencies": ["reason-react", "bs-css", "bs-css-emotion"],
-  "reason": { "react-jsx": 3 },
+  "bs-dependencies": ["reason-react"],
+  "reason": {
+    "react-jsx": 3
+  },
   "package-specs": {
     "module": "es6",
     "in-source": true

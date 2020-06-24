@@ -10,18 +10,6 @@ let counterReducer = (state, action) =>
   | Min => {count: state.count - 1}
   };
 
-module Styles = {
-  open Css;
-
-  let counter =
-    style([
-      background(hex("ddd")),
-      color(black),
-      display(inlineBlock),
-      padding2(~v=px(5), ~h=px(10)),
-    ]);
-};
-
 [@react.component]
 let make = () => {
   let (state, dispatch) = React.useReducer(counterReducer, {count: 0});
@@ -29,7 +17,9 @@ let make = () => {
   let countMsg = "Count: " ++ string_of_int(state.count);
   <div>
     <Button onClick={_ => dispatch(Min)}> {ReasonReact.string("-")} </Button>
-    <strong className=Styles.counter> {ReasonReact.string(countMsg)} </strong>
+    <strong className="RCounter_counter">
+      {ReasonReact.string(countMsg)}
+    </strong>
     <Button onClick={_ => dispatch(Add)}> {ReasonReact.string("+")} </Button>
   </div>;
 };
