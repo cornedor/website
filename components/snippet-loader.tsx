@@ -1,9 +1,9 @@
-import loadable from '@loadable/component'
+import dynamic from 'next/dynamic'
 import { SnippetProps } from './snippet'
 import Head from 'next/head'
 
 // These are somewhat bigger libraries, loading async for initial performance.
-const Snippet = loadable(() => import('./snippet'))
+const Snippet = dynamic(() => import('./snippet'))
 
 interface SnippetLoaderProps {
   children: string
@@ -31,11 +31,7 @@ const SnippetLoader = ({ children, ...props }: SnippetLoaderProps) => {
           rel="stylesheet"
         />
       </Head>
-      {snippetProps.language ? (
-        <Snippet {...snippetProps} fallback={fallback} />
-      ) : (
-        fallback
-      )}
+      {snippetProps.language ? <Snippet {...snippetProps} /> : fallback}
     </>
   )
 }
