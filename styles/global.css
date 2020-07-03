@@ -1,9 +1,7 @@
 :root {
-  --gradient: linear-gradient(
-    180deg,
-    rgba(140, 73, 207, 0.25) 0%,
-    rgba(140, 72, 207, 0.05) 100%
-  );
+  --gradient: linear-gradient(180deg,
+      rgba(140, 73, 207, 0.25) 0%,
+      rgba(140, 72, 207, 0.05) 100%);
 
   --font-title: 'Pacifico', cursive;
   --font-body: 'Balsamiq Sans', sans-serif;
@@ -55,6 +53,7 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   max-width: 1152px;
   margin: 0 auto;
 }
@@ -69,10 +68,60 @@ p {
   align-items: center;
 }
 
+.hamburger {
+  display: none;
+}
+
+@media (max-width: 500px) {
+  .navLinks {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    flex-direction: column;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    padding: 1em;
+    align-items: flex-start;
+
+    background: var(--color-background) var(--gradient);
+  }
+
+  .navLinks-open {
+    display: flex;
+  }
+
+  .lightSwitch {
+    margin-left: 25px;
+  }
+
+  .hamburger {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 20;
+    height: 15px;
+    width: 20px;
+    border: none;
+    background: none;
+    padding: 0;
+    flex-direction: column;
+    cursor: pointer;
+  }
+
+  .hamburger span {
+    background: var(--color-primary);
+    height: 2px;
+    width: 100%;
+  }
+}
+
 .navLink {
   padding: 10px;
   margin-left: 16px;
 }
+
 .navLink:last-of-type {
   padding-right: 0;
 }
@@ -87,6 +136,7 @@ p {
   padding: 40px 10px;
   margin: 0 auto;
 }
+
 /* see @media min-width 500px */
 
 .pageTop {
@@ -113,6 +163,7 @@ p {
   cursor: pointer;
   font-size: inherit;
 }
+
 .button:hover {
   opacity: 0.8;
 }
@@ -128,8 +179,8 @@ p {
 }
 
 .lightSwitch {
-  padding: 10px;
-  margin-left: 16px;
+  padding: 10px 10px 10px 0;
+  margin-left: 10px;
   background: none;
   border: none;
   font-size: 24px;

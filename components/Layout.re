@@ -1,5 +1,6 @@
 [@react.component]
-let make = (~children, ~title, ()) =>
+let make = (~children, ~title, ()) => {
+  let (menuOpen, setMenuOpen) = React.useState(_ => false);
   <div className="container">
     <SEO title /> // <-- move these to layout.tsx
     <Fonts />
@@ -11,7 +12,15 @@ let make = (~children, ~title, ()) =>
             {ReasonReact.string({j|Corné Dorrestijn|j})}
           </a>
         </Next.Link>
-        <nav className="navLinks">
+        <button
+          onClick={_ => setMenuOpen(s => !s)}
+          className="hamburger"
+          ariaLabel="Switch menu">
+          <span />
+          <span />
+          <span />
+        </button>
+        <nav className={"navLinks" ++ (menuOpen ? " navLinks-open" : "")}>
           <DarkModeSwitcher />
           <Next.Link href="/posts">
             <a className="navLink"> {ReasonReact.string("Blog")} </a>
@@ -32,7 +41,8 @@ let make = (~children, ~title, ()) =>
         children
       </div>
     </main>
-  </div>; // <-- links etc.
+  </div>;
+};
 
 [@genType]
 let default = make;
