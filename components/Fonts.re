@@ -11,7 +11,7 @@ let make = () => {
     <link
       href=fonts
       rel="stylesheet"
-      media={showFont ? "print" : "all"}
+      media={showFont ? "all" : "print"}
       onLoad={_ => setShowFont(_ => true)}
     />
   </Next.Head>;
