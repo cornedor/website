@@ -1,0 +1,18 @@
+---
+title: 'Back to old school CSS, or why I stopped using CSS-in-JS'
+excerpt: >
+  For my blog I was using a CSS-in-JS solution. In this post I will explain why 
+  I switched back to a simple plain css solution.
+---
+
+For some projects CSS-in-JS is great, it adds a lot of structure and you get a
+ton of great features. I've quickly switche to CSS-in-JS on this blog with the
+bs-css-emotion package. It worked great and the statical typing of CSS names and
+values is also great. But it does come at a cost. Loading the homepage would
+load ~75 kB of JavaScript, that might not sound that bad, but 30 kB was just the
+CSS-in-JS library I used. That is 40%. On top of that, also the CSS had to be
+added. It also adds a tiny bit of overhead, but for a site as small as this, it
+does make a "big" difference. Using simple CSS in a site like this is very good
+managable. So I've moved back to a very simple just plain CSS setup that is
+loaded using JavaScript ofcourse, because, if it doesn't at least touch
+JavaScript a tiny bit, what kind of web developer are you...

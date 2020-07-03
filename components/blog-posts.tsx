@@ -17,6 +17,7 @@ const BlogPosts = () => (
   <>
     {posts.map((post: BlogPost) => (
       <BlogPost
+        key={post.__resourcePath}
         title={post.title}
         excerpt={post.excerpt}
         path={post.__resourcePath}

@@ -1,11 +1,8 @@
 const withMdxEnhanced = require('next-mdx-enhanced')
-const withTM = require('next-transpile-modules')([
-  'bs-platform',
-  'bs-css',
-  'bs-css-emotion',
-])
+const withTM = require('next-transpile-modules')(['bs-platform'])
+const withSourceMaps = require('@zeit/next-source-maps')
 
-module.exports = withMdxEnhanced({
+module.exports = withSourceMaps(withMdxEnhanced({
   layoutPath: 'layouts',
   defaultLayout: true,
   fileExtensions: ['mdx'],
@@ -19,4 +16,4 @@ module.exports = withMdxEnhanced({
   withTM({
     pageExtensions: ['jsx', 'js', 'bs.js', 'ts', 'tsx'],
   }),
-)
+))
