@@ -1,4 +1,4 @@
-[@react.component]
+@react.component
 let make = (~children, ~title, ()) => {
   let (menuOpen, setMenuOpen) = React.useState(_ => false);
   <div className="container">
@@ -9,7 +9,7 @@ let make = (~children, ~title, ()) => {
       <div className="headerContent">
         <Next.Link href="/">
           <a className="headerName">
-            {ReasonReact.string({j|Corné Dorrestijn|j})}
+            {ReasonReact.string(j`Corné Dorrestijn`)}
           </a>
         </Next.Link>
         <button
@@ -44,5 +44,5 @@ let make = (~children, ~title, ()) => {
   </div>;
 };
 
-[@genType]
+@genType
 let default = make;

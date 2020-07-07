@@ -1,4 +1,4 @@
-[@react.component]
+@react.component
 let make = (~className="") =>
   <svg
     viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor" className>
@@ -8,5 +8,5 @@ let make = (~className="") =>
     />
   </svg>;
 
-[@typeGen]
+@typeGen
 let default = make;

@@ -10,7 +10,7 @@ let counterReducer = (state, action) =>
   | Min => {count: state.count - 1}
   };
 
-[@react.component]
+@react.component
 let make = () => {
   let (state, dispatch) = React.useReducer(counterReducer, {count: 0});
 

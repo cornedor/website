@@ -1,4 +1,4 @@
-[@react.component]
+@react.component
 let make = (~className="") =>
   <svg
     width="1000"
@@ -10,5 +10,5 @@ let make = (~className="") =>
     <path d="M 0 100 C 300 -30, 700 -30, 1000 100" fill="currentColor" />
   </svg>;
 
-[@genType]
+@genType
 let default = make;

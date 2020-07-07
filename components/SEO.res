@@ -1,6 +1,6 @@
-[@react.component]
+@react.component
 let make = (~title) => {
-  let fullTitle = {j|Corné Dorrestijn|j} ++ title;
+  let fullTitle = j`Corné Dorrestijn` ++ title;
 
   <Next.Head>
     <link rel="icon" href="/favicon.ico" />
@@ -19,5 +19,5 @@ let make = (~title) => {
   </Next.Head>;
 };
 
-[@genType]
+@genType
 let default = make;

@@ -1,4 +1,4 @@
-[@react.component]
+@react.component
 let make = (~children, ~onClick=?) => {
   <button ?onClick className="button"> children </button>;
 };
