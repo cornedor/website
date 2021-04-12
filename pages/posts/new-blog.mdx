@@ -51,9 +51,9 @@ let make = () => {
 
   let countMsg = "Count: " ++ string_of_int(state.count);
   <div>
-    <Button onClick={_ => dispatch(Min)}> {ReasonReact.string("-")} </Button>
-    <strong className=Styles.counter> {ReasonReact.string(countMsg)} </strong>
-    <Button onClick={_ => dispatch(Add)}> {ReasonReact.string("+")} </Button>
+    <Button onClick={_ => dispatch(Min)}> {React.string("-")} </Button>
+    <strong className=Styles.counter> {React.string(countMsg)} </strong>
+    <Button onClick={_ => dispatch(Add)}> {React.string("+")} </Button>
   </div>;
 };
 

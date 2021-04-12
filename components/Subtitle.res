@@ -1,5 +1,4 @@
 @react.component
-let make = (~children) => <h2 className="subtitle"> children </h2>;
+let make = (~children) => <h2 className="subtitle"> children </h2>
 
-@genType
-let default = make;
+export default = make

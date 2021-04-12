@@ -1,6 +1,7 @@
 {
   "name": "corne-info",
-  "sources": [{
+  "sources": [
+    {
       "dir": "components",
       "subdirs": true
     },
@@ -13,7 +14,7 @@
       "subdirs": true
     }
   ],
-  "bs-dependencies": ["reason-react"],
+  "bs-dependencies": ["@rescript/react"],
   "reason": {
     "react-jsx": 3
   },
