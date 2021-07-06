@@ -12,10 +12,11 @@
   "dependencies": {
     "@loadable/component": "^5.14.1",
     "@mdx-js/react": "^1.6.22",
-    "@rescript/std": "^9.1.0",
     "@rescript/react": "^0.10.1",
+    "@rescript/std": "^9.1.0",
     "@types/loadable__component": "^5.13.3",
     "@zeit/next-source-maps": "^0.0.3",
+    "bs-webapi": "^0.19.1",
     "classnames": "^2.3.1",
     "gray-matter": "^4.0.2",
     "next": "^10.1.3",

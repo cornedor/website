@@ -14,7 +14,7 @@
       "subdirs": true
     }
   ],
-  "bs-dependencies": ["@rescript/react"],
+  "bs-dependencies": ["@rescript/react", "bs-webapi"],
   "reason": {
     "react-jsx": 3
   },
