@@ -232,6 +232,15 @@ p {
 .heightTest {
   height: 80vh;
   background: url(https://cdn.corne.info/crop?type=auto&stripmeta=true&url=https://i.redd.it/hzfuwxc84h971.jpg&quality=95&width=1080&height=1080);
+  background-size: cover;
+  background-position: center center;
+  padding: 20px;
+}
+
+.heightTest span {
+  background: white;
+  color: black;
+  padding: 2px;
 }
 
 .heightTestSpacer {

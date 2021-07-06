@@ -18,7 +18,9 @@ let make = () => {
   })
   <div>
     <p className="heightTest">
-      {React.string("Look at how this part resizes: " ++ string_of_int(heightPx) ++ "px")}
+      <span>
+        {React.string("Look at how this part resizes: " ++ string_of_int(heightPx) ++ "px")}
+      </span>
     </p>
     <p className="heightTestSpacer"> {React.string("Scroll down")} </p>
   </div>
