@@ -16,8 +16,10 @@ let make = () => {
 
     Some(() => Webapi.Dom.Window.removeEventListener("resize", handleResize, Webapi.Dom.window))
   })
-  <div className="heightTest">
-    <p> {React.string("Look at how this part resizes: " ++ string_of_int(heightPx) ++ "px")} </p>
+  <div>
+    <p className="heightTest">
+      {React.string("Look at how this part resizes: " ++ string_of_int(heightPx) ++ "px")}
+    </p>
     <p className="heightTestSpacer"> {React.string("Scroll down")} </p>
   </div>
 }
