@@ -1,7 +1,9 @@
 :root {
-  --gradient: linear-gradient(180deg,
-      rgba(140, 73, 207, 0.25) 0%,
-      rgba(140, 72, 207, 0.05) 100%);
+  --gradient: linear-gradient(
+    180deg,
+    rgba(140, 73, 207, 0.25) 0%,
+    rgba(140, 72, 207, 0.05) 100%
+  );
 
   --font-title: 'Pacifico', cursive;
   --font-body: 'Balsamiq Sans', sans-serif;
@@ -229,7 +231,7 @@ p {
 
 .heightTest {
   height: 80vh;
-  background: red;
+  background: url(https://cdn.corne.info/crop?type=auto&stripmeta=true&url=https://i.redd.it/hzfuwxc84h971.jpg&quality=95&width=1080&height=1080);
 }
 
 .heightTestSpacer {
