@@ -22,6 +22,8 @@ let make = () => {
         {React.string("Look at how this part resizes: " ++ string_of_int(heightPx) ++ "px")}
       </span>
     </p>
+    <div className="heightTestFixedTop"> {React.string("Top")} </div>
+    <div className="heightTestFixedBottom"> {React.string("Bottom")} </div>
     <p className="heightTestSpacer"> {React.string("Scroll down")} </p>
   </div>
 }
