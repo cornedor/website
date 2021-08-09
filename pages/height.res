@@ -1,6 +1,8 @@
 @react.component
 let make = () => {
   let (heightPx, setHeightPx) = React.useState(_ => 0)
+  let (divHeightPx, setDivHeightPx) = React.useState(_ => 0)
+  let divRef = React.useRef(Js.Nullable.null)
 
   let handleResize = _ => {
     setHeightPx(_ => Webapi.Dom.Window.innerHeight(Webapi.Dom.window))
@@ -9,19 +11,25 @@ let make = () => {
   React.useEffect(() => {
     Webapi.Dom.Window.addEventListener("resize", handleResize, Webapi.Dom.window)
 
-    let _ = Js.Global.setTimeout(
-      () => setHeightPx(_ => Webapi.Dom.Window.innerHeight(Webapi.Dom.window)),
-      100,
-    )
+    let _ = Js.Global.setTimeout(() => {
+      setHeightPx(_ => Webapi.Dom.Window.innerHeight(Webapi.Dom.window))
+
+      divRef.current
+      ->Js.Nullable.toOption
+      ->Belt.Option.map(ref => setDivHeightPx(_ => Webapi.Dom.Element.clientHeight(ref)))
+      ->ignore
+    }, 100)
 
     Some(() => Webapi.Dom.Window.removeEventListener("resize", handleResize, Webapi.Dom.window))
   })
   <div>
-    <p className="heightTest">
+    <div className="heightTest" ref={ReactDOM.Ref.domRef(divRef)}>
       <span>
-        {React.string("Look at how this part resizes: " ++ string_of_int(heightPx) ++ "px")}
+        {React.string("Window height: " ++ string_of_int(heightPx) ++ "px")}
+        <br />
+        {React.string("Container height: " ++ string_of_int(divHeightPx) ++ "px")}
       </span>
-    </p>
+    </div>
     <div className="heightTestFixedTop"> {React.string("Top")} </div>
     <div className="heightTestFixedBottom"> {React.string("Bottom")} </div>
     <p className="heightTestSpacer"> {React.string("Scroll down")} </p>
