@@ -1,9 +1,12 @@
 ---
 title: 'Back to old school CSS, or why I stopped using CSS-in-JS'
-excerpt: >
-  For my blog I was using a CSS-in-JS solution. In this post I will explain why 
-  I switched back to a simple plain css solution.
+created_at: 1592949600000
 ---
+For my blog I was using a CSS-in-JS solution. In this post I will explain why 
+I switched back to a simple plain css solution.
+---
+
+import Layout from '../../components/Layout.gen'
 
 For some projects CSS-in-JS is great, it adds a lot of structure and you get a
 ton of great features. I've quickly switche to CSS-in-JS on this blog with the
@@ -16,3 +19,5 @@ does make a "big" difference. Using simple CSS in a site like this is very good
 managable. So I've moved back to a very simple just plain CSS setup that is
 loaded using JavaScript ofcourse, because, if it doesn't at least touch
 JavaScript a tiny bit, what kind of web developer are you...
+
+export default ({ children }) => <Layout title="Back to old school CSS, or why I stopped using CSS-in-JS">{children}</Layout>

@@ -1,6 +1,10 @@
 @react.component
 let make = (~children, ~title, ()) => {
   let (menuOpen, setMenuOpen) = React.useState(_ => false)
+  let router = Next.Router.useRouter()
+
+  Js.log(router);
+
   <div className="container">
     <SEO title /> // <-- move these to layout.tsx
     <Fonts />

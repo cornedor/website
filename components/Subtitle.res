@@ -1,4 +1,9 @@
 @react.component
-let make = (~children) => <h2 className="subtitle"> children </h2>
+let make = (~children: option<React.element>=?) => <h2 className="subtitle">
+  {switch children {
+    | Some(element) => element
+    | None => React.string("Subtitle Undefined")
+    }}
+</h2>
 
 export default = make

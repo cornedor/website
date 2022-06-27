@@ -1,14 +1,17 @@
 ---
-title: 'My new fancy blog'
-excerpt: >
-  Welcome to my new blog, on this page i'm currently testing out
-  features i'm implementing on this website. For example to test some
-  markdown features. Or to test if I can include React  and using MDX files.
+title: My new fancy blog
+created_at: 1590703200000
+---
+Welcome to my new blog, on this page i'm currently testing out
+features i'm implementing on this website. For example to test some
+markdown features. Or to test if I can include React  and using MDX files.
 ---
 
 import DarkModeSwitcher from '../../components/DarkModeSwitcher.bs'
 import ReasonCounter from '../../components/ReasonCounter.bs'
 import { fact } from '../../components/Val.bs'
+import Layout from '../../components/Layout.gen'
+
 
 Welcome to my new blog, on this page i'm currently testing out features i'm
 implementing on this website. For example to _test_ some **markdown** features.
@@ -150,3 +153,5 @@ void Recorder::setCodec(const Codec &codec)
 <button onClick={() => global.localStorage.removeItem('color-mode')}>
   Remove stored color mode
 </button>
+
+export default ({ children }) => <Layout title="My new fancy blog">{children}</Layout>

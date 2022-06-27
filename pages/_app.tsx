@@ -3,13 +3,14 @@ import '../styles/prism.css'
 import { AppProps } from 'next/app'
 import { ReactNode } from 'react'
 import { MDXProvider } from '@mdx-js/react'
+import { MDXComponents } from 'mdx/types'
 import Title from '../components/Title.gen'
 import Subtitle from '../components/Subtitle.gen'
 import SnippetLoader from '../components/snippet-loader'
 import DarkModeManager from '../components/dark-mode-manager'
 import Head from 'next/head'
 
-const mapping = {
+const mapping: MDXComponents = {
   h1: Title,
   h2: Subtitle,
   code: SnippetLoader,

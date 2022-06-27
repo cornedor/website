@@ -156,6 +156,11 @@ p {
   color: inherit;
 }
 
+.blogLinkTime {
+  color: #999;
+  font-size: smaller;
+}
+
 /* Button */
 .button {
   background-color: var(--color-primary);

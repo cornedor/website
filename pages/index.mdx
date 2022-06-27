@@ -1,6 +1,9 @@
----
-title: My little tricks and snips.
----
+import Layout from '../components/Layout.gen'
+
+export const meta = {
+  title: 'My little tricks and snips.',
+}
+
 
 import BlogPosts from '../components/blog-posts.tsx'
 
@@ -24,3 +27,5 @@ something.
 Yours faithfully
 
 Corné Dorrestijn
+
+export default ({ children }) => <Layout>{children}</Layout>
