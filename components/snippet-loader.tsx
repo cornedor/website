@@ -8,7 +8,7 @@ const Snippet = loadable(() => import('./snippet'))
 
 interface SnippetLoaderProps {
   children?: ReactNode
-  className: string
+  className?: string
 }
 
 const SnippetLoader = ({ children, ...props }: SnippetLoaderProps) => {
