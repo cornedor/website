@@ -13,7 +13,7 @@ import remarkFrontmatter from 'remark-frontmatter'
 import nextMdx from '@next/mdx'
 
 
-const transpileModules = ["rescript"].concat(bsconfig["bs-dependencies"]);
+const transpileModules = ["rescript", 'refractor'].concat(bsconfig["bs-dependencies"]);
 const withTM = nextTranspileModules(transpileModules)
 
 const withMDX = nextMdx({

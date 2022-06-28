@@ -23,11 +23,11 @@ const Snippet = ({ language, ...props }: Refractor.Props) => {
   }, [language])
 
   return isLanguageLoaded ? (
-    <Refractor {...props} language={language} />
+    <Refractor {...props} language={language} inline className={`language-${language}`} />
   ) : (
-    <pre className="language-clike">
+    // <pre className="language-clike">
       <code className="language-clike">{props.value}</code>
-    </pre>
+    // </pre>
   )
 }
 

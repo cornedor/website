@@ -14,6 +14,7 @@ const mapping: MDXComponents = {
   h1: Title,
   h2: Subtitle,
   code: SnippetLoader,
+  pre: ({ children }) => <pre className="refractor language-clike">{children}</pre>
   // TODO: needs more compact styling for inline
   // inlineCode: SnippetLoader,
 }

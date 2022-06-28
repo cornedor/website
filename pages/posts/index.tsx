@@ -11,22 +11,22 @@ interface Props {
   mdxContents: Array<{
     slug: string
     meta: {
-      title: string
-      created_at: number
+      title?: string
+      created_at?: number
+      excerpt?: string
     }
-    excerpt?: string
   }>
 }
 
 export default function Posts({ mdxContents }: Props) {
   return (
     <Layout title="Posts">
-      {mdxContents.map(({ meta, slug, excerpt }) => (
+      {mdxContents.map(({ meta, slug }) => (
         <BlogPost
           key={slug}
           title={meta.title}
-          created_at={meta.created_at}
-          excerpt={excerpt}
+          created_at={meta.created_at ?? 0}
+          excerpt={meta.excerpt}
           path={'posts/' + slug ?? ''}
         />
       ))}
@@ -36,11 +36,10 @@ export default function Posts({ mdxContents }: Props) {
 
 async function parseFile(filename: string) {
   const content = await fs.readFile(`${basePath}/${filename}`, 'utf-8')
-  const parsed = matter(content, { excerpt: true })
+  const parsed = matter(content)
   return {
     slug: filename.replace(/\.mdx?$/, ''),
     meta: parsed.data,
-    excerpt: parsed.excerpt,
   }
 }
 

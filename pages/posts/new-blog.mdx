@@ -1,10 +1,10 @@
 ---
 title: My new fancy blog
 created_at: 1590703200000
----
-Welcome to my new blog, on this page i'm currently testing out
-features i'm implementing on this website. For example to test some
-markdown features. Or to test if I can include React  and using MDX files.
+excerpt: >
+  Welcome to my new blog, on this page i'm currently testing out
+  features i'm implementing on this website. For example to test some
+  markdown features. Or to test if I can include React  and using MDX files.
 ---
 
 import DarkModeSwitcher from '../../components/DarkModeSwitcher.bs'
@@ -18,13 +18,15 @@ implementing on this website. For example to _test_ some **markdown** features.
 Or to test if I can include React components like <DarkModeSwitcher /> using
 these MDX files.
 
-## ReasonML
+## ReScript
 
-This blog supports readonml components as well, for example this counter: <ReasonCounter />
+This blog supports readonml components as well, for example this counter:
+
+<ReasonCounter />
 
 Here is the source of the counter component:
 
-```reason
+```rescript
 type action =
   | Add
   | Min;
@@ -64,7 +66,7 @@ let default = make;
 
 ```
 
-It is even possible to include OCaml, here is the result of \``fact 5;;`\`: <strong children={fact(5)} />
+It is even possible to include OCaml, here is the result of `fact 5;;`: <strong children={fact(5)} />
 
 ```ocaml
 let fact n =

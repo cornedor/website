@@ -12,16 +12,17 @@ interface SnippetLoaderProps {
 }
 
 const SnippetLoader = ({ children, ...props }: SnippetLoaderProps) => {
+  const lang = props.className?.split('-')[1]
   const snippetProps: SnippetProps = {
     value: String(children),
     // The language is available as a class name when defined in the mdx file
-    language: props.className?.split('-')[1],
+    language: lang ?? 'clike',
   }
 
   const fallback = (
-    <pre className="language-clike">
+    // <pre className="language-clike">
       <code className="language-clike">{children}</code>
-    </pre>
+    // </pre>
   )
 
   return (
@@ -32,7 +33,7 @@ const SnippetLoader = ({ children, ...props }: SnippetLoaderProps) => {
           rel="stylesheet"
         />
       </Head>
-      {snippetProps.language ? (
+      {lang ? (
         <Snippet {...snippetProps} fallback={fallback} />
       ) : (
         fallback
