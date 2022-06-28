@@ -7,7 +7,6 @@ let make = (~children, ~title, ()) => {
 
   <div className="container">
     <SEO title /> // <-- move these to layout.tsx
-    <Fonts />
     // <-- pass <DarkModeManager /> to here
     <header className="header">
       <div className="headerContent">
