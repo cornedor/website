@@ -1,9 +1,7 @@
 @react.component
 let make = (~children, ~title, ()) => {
   let (menuOpen, setMenuOpen) = React.useState(_ => false)
-  let router = Next.Router.useRouter()
-
-  Js.log(router);
+  // let router = Next.Router.useRouter()
 
   <div className="container">
     <SEO title /> // <-- move these to layout.tsx
@@ -26,9 +24,15 @@ let make = (~children, ~title, ()) => {
     </header>
     <main className="main">
       <PageTopBend className="pageTop" />
-      <div className="content"> <Title> {React.string(title)} </Title> children </div>
+      <div className="content">
+        {switch title {
+        | None => <> </>
+        | Some(string) => <Title> {React.string(string)} </Title>
+        }}
+        children
+      </div>
     </main>
   </div>
 }
 
-export default = make
+@genType let default = make
