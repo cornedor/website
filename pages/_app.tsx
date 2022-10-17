@@ -9,12 +9,15 @@ import Subtitle from '../components/Subtitle.gen'
 import SnippetLoader from '../components/snippet-loader'
 import DarkModeManager from '../components/dark-mode-manager'
 import Head from 'next/head'
+import Script from 'next/script'
 
 const mapping: MDXComponents = {
   h1: Title,
   h2: Subtitle,
   code: SnippetLoader,
-  pre: ({ children }) => <pre className="refractor language-clike">{children}</pre>
+  pre: ({ children }) => (
+    <pre className="refractor language-clike">{children}</pre>
+  ),
   // TODO: needs more compact styling for inline
   // inlineCode: SnippetLoader,
 }
