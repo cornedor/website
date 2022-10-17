@@ -45,13 +45,6 @@ export default class MyDocument extends Document {
             async
             strategy="afterInteractive"
           ></Script>
-          <Script
-            id="CookieDeclaration"
-            src="https://consent.cookiebot.com/b772e023-b834-403e-a781-509ee5e914fb/cd.js"
-            type="text/javascript"
-            async
-            strategy="afterInteractive"
-          ></Script>
         </body>
       </Html>
     )
