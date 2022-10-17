@@ -1,6 +1,9 @@
 @react.component
 let make = (~title) => {
-  let fullTitle = j`Corné Dorrestijn` ++ title
+  let fullTitle = switch title {
+  | None => j`Corné Dorrestijn`
+  | Some(string) => j`Corné Dorrestijn | ` ++ string
+  }
 
   <Next.Head>
     <link rel="icon" href="/favicon.ico" />
@@ -16,4 +19,4 @@ let make = (~title) => {
   </Next.Head>
 }
 
-export default = make
+@genType let default = make
