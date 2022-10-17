@@ -41,6 +41,7 @@ export default class MyDocument extends Document {
             id="Cookiebot"
             src="https://consent.cookiebot.com/uc.js"
             data-cbid="b772e023-b834-403e-a781-509ee5e914fb"
+            data-blockingmode="auto"
             type="text/javascript"
             async
             strategy="afterInteractive"
