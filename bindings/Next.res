@@ -22,7 +22,9 @@ module GetServerSideProps = {
   }
 
   // The definition of a getServerSideProps function
-  type t<'props, 'params, 'previewData> = context<'props, 'params, 'previewData> => Js.Promise.t<{"props": 'props}>
+  type t<'props, 'params, 'previewData> = context<'props, 'params, 'previewData> => Js.Promise.t<{
+    "props": 'props,
+  }>
 }
 
 module GetStaticProps = {
@@ -63,6 +65,7 @@ module Link = {
     ~shallow: option<bool>=?,
     ~passHref: option<bool>=?,
     ~children: React.element,
+    ~className: string=?,
   ) => React.element = "default"
 }
 

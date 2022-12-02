@@ -6,7 +6,7 @@ excerpt: >
   I switched back to a simple plain css solution.
 ---
 
-import Layout from '../../components/Layout.gen'
+import Layout from '../../components/Layout.bs'
 
 For some projects CSS-in-JS is great, it adds a lot of structure and you get a
 ton of great features. I've quickly switche to CSS-in-JS on this blog with the
@@ -20,4 +20,8 @@ managable. So I've moved back to a very simple just plain CSS setup that is
 loaded using JavaScript ofcourse, because, if it doesn't at least touch
 JavaScript a tiny bit, what kind of web developer are you...
 
-export default ({ children }) => <Layout title="Back to old school CSS, or why I stopped using CSS-in-JS">{children}</Layout>
+export default ({ children }) => (
+  <Layout title="Back to old school CSS, or why I stopped using CSS-in-JS">
+    {children}
+  </Layout>
+)

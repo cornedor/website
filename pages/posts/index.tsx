@@ -1,6 +1,6 @@
 import { GetStaticProps } from 'next'
-import Layout from '../../components/Layout.gen'
-import BlogPost from '../../components/BlogPost.gen'
+import Layout from '../../components/Layout.bs'
+import BlogPost from '../../components/BlogPost.bs'
 import fs from 'fs/promises'
 import matter from 'gray-matter'
 import path from 'path'

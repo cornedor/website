@@ -6,7 +6,7 @@ import { ReactNode } from 'react'
 // These are somewhat bigger libraries, loading async for initial performance.
 const Snippet = loadable(() => import('./snippet'))
 
-interface SnippetLoaderProps {
+export interface SnippetLoaderProps {
   children?: ReactNode
   className?: string
 }
@@ -21,7 +21,7 @@ const SnippetLoader = ({ children, ...props }: SnippetLoaderProps) => {
 
   const fallback = (
     // <pre className="language-clike">
-      <code className="language-clike">{children}</code>
+    <code className="language-clike">{children}</code>
     // </pre>
   )
 
@@ -33,11 +33,7 @@ const SnippetLoader = ({ children, ...props }: SnippetLoaderProps) => {
           rel="stylesheet"
         />
       </Head>
-      {lang ? (
-        <Snippet {...snippetProps} fallback={fallback} />
-      ) : (
-        fallback
-      )}
+      {lang ? <Snippet {...snippetProps} fallback={fallback} /> : fallback}
     </>
   )
 }

@@ -9,5 +9,3 @@ let make = (~className="") =>
     className>
     <path d="M 0 100 C 300 -30, 700 -30, 1000 100" fill="currentColor" />
   </svg>
-
-export default = make

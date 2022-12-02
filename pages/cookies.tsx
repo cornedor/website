@@ -1,5 +1,5 @@
 import Script from 'next/script'
-import LayoutBs from '../components/Layout.bs'
+import { Layout as LayoutBs } from '../components/Layout.bs'
 import DefaultLayout from '../layouts'
 
 export default function Cookies() {
