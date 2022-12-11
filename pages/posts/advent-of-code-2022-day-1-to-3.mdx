@@ -14,6 +14,8 @@ import {
   calculateStrategyScore,
   calculateStrategyScore2,
 } from '../../components/aoc22/DayTwo.bs'
+import { getAllDoublesInRucksacks } from '../../components/aoc22/DayThree.bs'
+import { getElfGroups } from '../../components/aoc22/DayThreeB.bs'
 import Spoiler from '../../components/Spoiler.bs'
 
 ## Day 1
@@ -150,6 +152,128 @@ let calculateStrategyScore2 = () => {
 }
 
 ```
+
+</Spoiler>
+
+## Day 3
+
+<Spoiler summaryContent="Spoiler: sollution part 1">
+
+Data is defined like this:
+
+```rescript
+let indexToPrioTuple = (charOffset, indexOffset, index, (_char, _index)): (string, int) => (
+  Js.String2.fromCharCode(charOffset + index),
+  index + indexOffset,
+)
+
+let prios = Belt.Array.concat(
+  Belt.Array.make(26, ("a", 0))->Belt.Array.mapWithIndex(indexToPrioTuple(97, 1)),
+  Belt.Array.make(26, ("a", 0))->Belt.Array.mapWithIndex(indexToPrioTuple(65, 27)),
+)
+
+
+let data = "ZNNvFWHqLNPZHHqPTHHnT
+............
+CgBClZfCflPflNZRvfQswwmwmwQsQhgppdhm"
+
+```
+
+```rescript
+let lineToRucksack = line => {
+  let length = Js.String2.length(line) / 2
+  let sackOne = Js.String2.slice(line, ~from=0, ~to_=length)->Js.String2.split("")
+  let sackTwo = Js.String2.sliceToEnd(line, ~from=length)->Js.String2.split("")
+
+  (sackOne, sackTwo)
+}
+
+let tokensToRucksacks = tokens => {
+  Js.String2.split(tokens, "\n")->Belt.Array.map(lineToRucksack)
+}
+
+let findDoublesInRucksack = ((sackOne, sackTwo)) => {
+  Belt.Array.getBy(sackOne, item => {
+    Belt.Array.some(sackTwo, other => other === item)
+  })
+}
+
+let getPrioForToken = token => {
+  switch token {
+  | None => 0
+  | Some(token) => {
+      let result = Belt.Array.getBy(DayThreeInput.prios, ((t, _p)) => t === token)
+
+      switch result {
+      | Some((_, prio)) => prio
+      | None => 0
+      }
+    }
+  }
+}
+
+let getAllDoublesInRucksacks = () => {
+  let rucksacks = tokensToRucksacks(DayThreeInput.data)
+
+  Belt.Array.map(rucksacks, findDoublesInRucksack)
+  ->Belt.Array.map(getPrioForToken)
+  ->Belt.Array.reduce(0, \"+")
+}
+
+```
+
+<pre>{JSON.stringify(getAllDoublesInRucksacks(), null, 2)}</pre>
+
+</Spoiler>
+
+<Spoiler summaryContent="Spoiler: sollution part 2">
+
+```rescript
+let rec chunk = (array, length) => {
+  let part = Belt.Array.slice(array, ~offset=0, ~len=length)
+  let rest = Belt.Array.sliceToEnd(array, length)
+  switch rest {
+  | [] => list{part}
+  | _ => list{part, ...chunk(rest, length)}
+  }
+}
+
+let badgePrioInGroup = (group: array<array<string>>) => {
+  let leader = Belt.Array.get(group, 0)
+  let second = Belt.Array.get(group, 1)
+  let third = Belt.Array.get(group, 2)
+
+  switch (leader, second, third) {
+  | (Some(leader), Some(second), Some(third)) =>
+    Belt.Array.getBy(leader, token => {
+      let s = Belt.Array.getBy(second, t => token === t)
+      let t = Belt.Array.getBy(third, t => token === t)
+      switch (s, t) {
+      | (Some(_), Some(_)) => true
+      | (_, _) => false
+      }
+    })->DayThree.getPrioForToken
+  | (_, _, _) => 0
+  }
+}
+
+let rec calculateTotalPrioForBadges = groups => {
+  switch groups {
+  | list{} => 0
+  | list{group, ...rest} => badgePrioInGroup(group) + calculateTotalPrioForBadges(rest)
+  }
+}
+
+let getElfGroups = () => {
+  Js.String2.split(DayThreeInput.data, "\n")
+  ->Belt.Array.map(Js.String.split(""))
+  ->chunk(3)
+  ->calculateTotalPrioForBadges
+}
+
+```
+
+<pre>{JSON.stringify(getElfGroups(), null, 2)}</pre>
 
 </Spoiler>
 
