@@ -267,3 +267,48 @@ p {
 .heightTestFixedBottom {
   bottom: 10px;
 }
+
+/* AOC22 */
+
+.aoc22-crate {
+  width: 30px;
+  height: 30px;
+  border: black solid 1px;
+  background: #bd8a59;
+  font-weight: bolder;
+  text-align: center;
+  display: block;
+}
+
+.aoc22-indicator {
+  width: 30px;
+  height: 30px;
+  border: transparent solid 2px;
+  background: #eee;
+  text-align: center;
+}
+
+.aoc22-stack {
+  display: flex;
+  gap: 4px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.aoc22-floating .aoc22-stack {
+  justify-content: flex-end;
+}
+
+.aoc22-crate:first-child {
+  border: black solid 2px;
+  background: #ffa24b;
+  display: block;
+}
+
+.aoc22-stacks {
+  display: flex;
+  gap: 4px;
+  flex-direction: row;
+}
+

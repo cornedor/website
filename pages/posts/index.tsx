@@ -1,6 +1,6 @@
 import { GetStaticProps } from 'next'
 import Layout from '../../components/Layout.bs'
-import BlogPost from '../../components/BlogPost.bs'
+import BlogPost, { sortBlogPosts } from '../../components/BlogPost.bs'
 import fs from 'fs/promises'
 import matter from 'gray-matter'
 import path from 'path'
@@ -45,12 +45,13 @@ async function parseFile(filename: string) {
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const files = await fs.readdir(basePath, { withFileTypes: true })
-  console.log(files)
   const mdxFiles = files.filter((file) => file.name.endsWith('mdx'))
 
-  const mdxContents = await Promise.all(
+  const mdxContentsUnsorted = await Promise.all(
     mdxFiles.map((file) => parseFile(file.name)),
   )
+
+  const mdxContents = sortBlogPosts(mdxContentsUnsorted)
 
   return {
     props: {
