@@ -12,6 +12,7 @@ import {
   getPartialOverlapsInSchema,
 } from '../../components/aoc22/DayFour.bs'
 import { Stacks } from '../../components/aoc22/DayFiveRender.bs'
+import { main } from '../../components/aoc22/DaySix.bs'
 
 ## Day 4
 
@@ -63,3 +64,9 @@ let sortGrabbedCrates = (stack: stack, version) =>
 export default ({ children }) => (
   <Layout title="Advent of Code 2022">{children}</Layout>
 )
+
+## Day 6
+
+<Spoiler summaryContent="Spoiler: sollution">
+  {JSON.stringify(main(), null, 2)}
+</Spoiler>
