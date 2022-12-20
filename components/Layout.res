@@ -19,7 +19,7 @@ let make = (~children, ~title) => {
         <nav className={"navLinks" ++ (menuOpen ? " navLinks-open" : "")}>
           <DarkModeSwitcher />
           <Next.Link href="/posts" className="navLink"> {React.string("Blog")} </Next.Link>
-          <Next.Link href="/" className="navLink"> {React.string("Snippets")} </Next.Link>
+          <Next.Link href="/snippets" className="navLink"> {React.string("Snippets")} </Next.Link>
           <Next.Link href="/" className="navLink"> {React.string("About Me")} </Next.Link>
         </nav>
       </div>
