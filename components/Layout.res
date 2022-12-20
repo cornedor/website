@@ -34,6 +34,7 @@ let make = (~children, ~title) => {
         children
       </div>
     </main>
+    <Footer title />
   </div>
 }
 

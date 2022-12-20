@@ -7,6 +7,7 @@
 
   --font-title: 'Pacifico', cursive;
   --font-body: 'Balsamiq Sans', sans-serif;
+  --gray: #999;
 }
 
 html,
@@ -157,7 +158,7 @@ p {
 }
 
 .blogLinkTime {
-  color: #999;
+  color: var(--gray);
   font-size: smaller;
 }
 
@@ -266,6 +267,13 @@ p {
 
 .heightTestFixedBottom {
   bottom: 10px;
+}
+
+.siteFooter {
+  padding-top: 60px;
+  color: var(--gray);
+  text-align: center;
+  font-size: 14px;
 }
 
 /* AOC22 */
