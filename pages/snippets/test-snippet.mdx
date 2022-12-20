@@ -1,0 +1,38 @@
+---
+title: 'Snippet snippet'
+created_at: 1671184747323
+excerpt: >
+  A snippet for my snippets, snippetception?
+---
+
+import Layout from '../../components/Layout.bs'
+
+````
+---
+title: 'Title goes here'
+created_at: 1671184747323
+excerpt: >
+  A excerpt to explain what the snippet does
+---
+
+import Layout from '../../components/Layout.bs'
+
+```ocaml
+let fact n =
+    let result = ref 1 in
+    for i = 2 to n do
+      result := i * !result
+    done;
+    !result;;
+```
+
+
+export default ({ children }) => (
+  <Layout title="Advent of Code 2022">{children}</Layout>
+)
+
+````
+
+export default ({ children }) => (
+  <Layout title="Snippet snippet">{children}</Layout>
+)
