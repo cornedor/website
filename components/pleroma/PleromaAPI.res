@@ -46,7 +46,7 @@ type pleromaMedia = {
   id: string,
   preview_url: string,
   remote_url: Js.nullable<string>,
-  text_url: string,
+  text_url: Js.nullable<string>,
   \"type": [#image | #video | #audio | #unknown],
   url: string,
 }
@@ -86,11 +86,17 @@ type rec pleromaStatus = {
 
 type pleromaStatuses = Js.nullable<array<pleromaStatus>>
 
-let fetchStatuses = (): Promise.t<Js.Json.t> => {
+let fetchStatuses = (server, user): Promise.t<Js.Json.t> => {
   open Fetch
 
+  let url =
+    "https://" ++
+    Js.Global.encodeURIComponent(server) ++
+    "/api/v1/accounts/" ++
+    Js.Global.encodeURIComponent(user) ++ "/statuses"
+
   fetch(
-    "https://cd0.nl/api/v1/accounts/AQrH5G919Oh37LnIy8/statuses",
+    url,
     {
       method: #GET,
     },

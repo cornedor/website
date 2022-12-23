@@ -14,6 +14,13 @@ let getIcon = (status: PleromaAPI.pleromaStatus): Icon.iconIds =>
   | #direct => #envelope
   }
 
+let getMediaLink = (status: PleromaAPI.pleromaMedia) =>
+  switch (Js.Nullable.toOption(status.text_url), Js.Nullable.toOption(status.remote_url)) {
+  | (Some(url), _) => url
+  | (None, Some(url)) => url
+  | _ => "#"
+  }
+
 @react.component
 let make = (~data: PleromaAPI.pleromaStatuses) => {
   <Layout title={Some("Fediverse")}>
@@ -21,19 +28,23 @@ let make = (~data: PleromaAPI.pleromaStatuses) => {
     | Some(statuses) => {
         let statusElems = Belt.Array.map(statuses, status => {
           let account = getAccount(status)
-          let reblog = switch Js.Nullable.toOption(status.reblog) {
-          | Some(_) =>
-            <span className="fedi_statusReblogged fedi_textWithIcon">
-              {React.string("reblogged")}
-              <Icon id=#repeat />
-            </span>
-          | None => <> </>
+          let (reblog, content, media) = switch Js.Nullable.toOption(status.reblog) {
+          | Some(reblog) => (
+              <span className="fedi_statusReblogged fedi_textWithIcon">
+                {React.string("reblogged")}
+                <Icon id=#repeat />
+              </span>,
+              reblog.content,
+              reblog.media_attachments,
+            )
+          | None => (<> </>, status.content, status.media_attachments)
           }
+
           let (dateTime, formattedDate) = BlogPost.formatDate(Js.Date.fromString(status.created_at))
-          let media = status.media_attachments->Belt.Array.map(item =>
+          let media = Belt.Array.map(media, item =>
             switch item.\"type" {
             | #image =>
-              <Next.Link href={item.text_url}>
+              <Next.Link href={getMediaLink(item)}>
                 <img
                   className="fedi_statusMediaImg"
                   src={item.preview_url}
@@ -46,7 +57,7 @@ let make = (~data: PleromaAPI.pleromaStatuses) => {
                 />
               </Next.Link>
             | #video =>
-              <video className="fedi_statusMediaVideo" src={item.text_url} controls=true />
+              <video className="fedi_statusMediaVideo" src={getMediaLink(item)} controls=true />
             | #unknown => <> </>
             | #audio => <> </>
             }
@@ -54,7 +65,7 @@ let make = (~data: PleromaAPI.pleromaStatuses) => {
 
           let content =
             <>
-              <div className="fedi_content" dangerouslySetInnerHTML={{"__html": status.content}} />
+              <div className="fedi_content" dangerouslySetInnerHTML={{"__html": content}} />
               <div className="fedi_statusMedia"> {React.array(media)} </div>
             </>
 
@@ -132,7 +143,9 @@ let make = (~data: PleromaAPI.pleromaStatuses) => {
 let default = make
 
 let getStaticProps = _ctx =>
-  PleromaAPI.fetchStatuses()->Promise.then(result => {
+  // For Mastodon user IDs are required, Pleroma can handle user IDs or user handles.
+  // PleromaAPI.fetchStatuses("mastodon.social", "1")->Promise.then(result => {
+  PleromaAPI.fetchStatuses("cd0.nl", "corne")->Promise.then(result => {
     Promise.resolve({
       "props": {
         "data": result,

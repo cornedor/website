@@ -359,6 +359,10 @@ p {
   word-break: break-word;
 }
 
+.fedi_content p {
+  font-size: inherit;
+}
+
 .fedi_meta {
   display: flex;
   gap: 20px;
