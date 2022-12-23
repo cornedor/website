@@ -355,6 +355,10 @@ p {
   margin-left: var(--content-offset);
 }
 
+.fedi_content a {
+  word-break: break-word;
+}
+
 .fedi_meta {
   display: flex;
   gap: 20px;
