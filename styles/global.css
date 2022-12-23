@@ -157,7 +157,8 @@ p {
   color: inherit;
 }
 
-.blogLinkTime {
+.blogLinkTime,
+.subtleText {
   color: var(--gray);
   font-size: smaller;
 }
@@ -271,10 +272,129 @@ p {
 
 .siteFooter {
   padding-top: 60px;
+  padding-bottom: 40px;
   color: var(--gray);
   text-align: center;
   font-size: 14px;
 }
+
+.commonIcons {
+  display: none;
+}
+
+/* Fediverse */
+.fedi {
+  margin-left: 0;
+  margin-top: 20px;
+
+  --avatar-size: 64px;
+  --content-offset: calc(0px - var(--avatar-size) - 20px)
+}
+
+@media (min-width: 1200px) {
+  .fedi {
+    margin-left: -140px;
+  }
+}
+
+.fedi_status {
+  flex-direction: row;
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  border: solid thin var(--color-secondary);
+  box-shadow: 0 2px 6px var(--color-secondary);
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.fedi_statusAvatarImg {
+  border-radius: 3px;
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+}
+
+.fedi_statusMedia {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-left: var(--content-offset);
+}
+
+.fedi_statusMediaImg {
+  border-radius: 6px;
+  border: solid 2px var(--color-secondary);
+  object-fit: cover;
+  width: 100px;
+  height: auto;
+  aspect-ratio: 9 / 6;
+}
+
+.fedi_statusMediaVideo {
+  border-radius: 6px;
+  border: solid 2px var(--color-secondary);
+  object-fit: cover;
+  width: 80%;
+  height: auto;
+  aspect-ratio: 9 / 6;
+}
+
+.fedi_textWithIcon  {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.fedi_statusReblogged {
+  font-size: smaller;
+  color: var(--color-green);
+}
+
+.fedi_content {
+  margin-left: var(--content-offset);
+}
+
+.fedi_meta {
+  display: flex;
+  gap: 20px;
+}
+
+.fedi_statusContent {
+  flex: 1;
+}
+
+.fedi_statusInfo {
+  min-height: calc(var(--avatar-size) + 20px);
+}
+
+@media (min-width: 600px) {
+  .fedi {
+    --avatar-size: 100px;
+  }
+
+  .fedi_statusMediaImg {
+    width: 200px;
+  }
+
+  .fedi_statusReblogged {
+    float: right;
+  }
+
+
+  .fedi_content {
+    margin-left: 0px;
+  }
+
+  .fedi_statusMedia {
+    margin-left: 0px;
+  }
+
+  .fedi_statusInfo {
+    min-height: auto;
+  }
+}
+
 
 /* AOC22 */
 

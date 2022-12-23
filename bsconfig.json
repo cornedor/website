@@ -8,13 +8,15 @@
     {
       "dir": "pages",
       "subdirs": true
-    },
-    {
-      "dir": "bindings",
-      "subdirs": true
     }
   ],
-  "bs-dependencies": ["@rescript/react", "@opendevtools/rescript-intl"],
+  "bs-dependencies": [
+    "@rescript/react",
+    "@opendevtools/rescript-intl",
+    "@glennsl/rescript-fetch",
+    "@ryyppy/rescript-promise",
+    "rescript-next"
+  ],
   "reason": {
     "react-jsx": 3
   },

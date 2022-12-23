@@ -27,6 +27,7 @@ const DarkModeManager = () => (
               '--color-secondary': '#383140',
               '--color-text': '#dbd0e5',
               '--color-background': '#000000',
+              '--color-green': '#34CF67',
     
               '--light-switch-icon-start-pos': '0',
               '--light-switch-icon-end-pos': '-34px',
@@ -36,6 +37,7 @@ const DarkModeManager = () => (
               '--color-secondary': '#f1e9f9',
               '--color-text': '#000000',
               '--color-background': '#ffffff',
+              '--color-green': '#34CF67',
     
               '--light-switch-icon-start-pos': '-34px',
               '--light-switch-icon-end-pos': '-0',

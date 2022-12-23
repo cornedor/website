@@ -13,9 +13,7 @@ type post = {
   meta: postMeta,
 }
 
-@react.component
-let make = (~title="", ~excerpt="", ~path: string, ~created_at: float) => {
-  let date = Js.Date.fromFloat(created_at)
+let formatDate = date => {
   let dateTime = Js.Date.toTimeString(date)
   let formattedDate = Intl.DateTime.make(
     ~date,
@@ -29,6 +27,14 @@ let make = (~title="", ~excerpt="", ~path: string, ~created_at: float) => {
     ),
     (),
   )
+
+  (dateTime, formattedDate)
+}
+
+@react.component
+let make = (~title="", ~excerpt="", ~path: string, ~created_at: float) => {
+  let date = Js.Date.fromFloat(created_at)
+  let (dateTime, formattedDate) = formatDate(date)
 
   <Next.Link href={getSlugFromResourcePath(path)} className="blogLink">
     <article>

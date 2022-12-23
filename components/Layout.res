@@ -5,6 +5,7 @@ let make = (~children, ~title) => {
 
   <div className="container">
     <SEO title /> // <-- move these to layout.tsx
+    <CommonIcons />
     // <-- pass <DarkModeManager /> to here
     <header className="header">
       <div className="headerContent">
@@ -18,6 +19,7 @@ let make = (~children, ~title) => {
         </button>
         <nav className={"navLinks" ++ (menuOpen ? " navLinks-open" : "")}>
           <DarkModeSwitcher />
+          <Next.Link href="/fediverse" className="navLink"> {React.string("Fediverse")} </Next.Link>
           <Next.Link href="/posts" className="navLink"> {React.string("Blog")} </Next.Link>
           <Next.Link href="/snippets" className="navLink"> {React.string("Snippets")} </Next.Link>
           <Next.Link href="/" className="navLink"> {React.string("About Me")} </Next.Link>
