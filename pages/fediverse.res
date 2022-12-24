@@ -44,12 +44,13 @@ let make = (~data: PleromaAPI.pleromaStatuses) => {
           let media = Belt.Array.map(media, item =>
             switch item.\"type" {
             | #image =>
-              <Next.Link href={getMediaLink(item)}>
+              <Next.Link href={getMediaLink(item)} key={item.id}>
                 <img
                   className="fedi_statusMediaImg"
                   src={item.preview_url}
                   width="200"
                   height="200"
+                  loading=#"lazy"
                   alt={switch Js.Nullable.toOption(item.description) {
                   | Some(str) => str
                   | _ => ""
@@ -57,7 +58,16 @@ let make = (~data: PleromaAPI.pleromaStatuses) => {
                 />
               </Next.Link>
             | #video =>
-              <video className="fedi_statusMediaVideo" src={getMediaLink(item)} controls=true />
+              <video
+                className="fedi_statusMediaVideo"
+                src={getMediaLink(item)}
+                controls=true
+                key={item.id}
+                alt={switch Js.Nullable.toOption(item.description) {
+                | Some(str) => str
+                | _ => ""
+                }}
+              />
             | #unknown => <> </>
             | #audio => <> </>
             }
@@ -71,7 +81,13 @@ let make = (~data: PleromaAPI.pleromaStatuses) => {
 
           <div className="fedi_status" key={status.id}>
             <div className="fedi_statusAvatar">
-              <img src={account.avatar} width="100" height="100" className="fedi_statusAvatarImg" />
+              <img
+                src={account.avatar}
+                width="100"
+                height="100"
+                className="fedi_statusAvatarImg"
+                loading=#"lazy"
+              />
             </div>
             <div className="fedi_statusContent">
               <div className="fedi_statusInfo">
