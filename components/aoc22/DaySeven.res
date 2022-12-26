@@ -118,7 +118,6 @@ let rec findSmallest = (items, smallest: int) => {
   | _ => smallest
   }
 
-  Js.log3(smallest, size, size <= smallest)
   let rest = Belt.Array.sliceToEnd(items, 1)
   let smallest = size <= smallest ? size : smallest
   switch rest {
@@ -163,14 +162,7 @@ let getData = () => {
     }
   )
 
-  Js.log(toRemove)
-
   let smallestToRemove = findSmallest(toRemove, totalDiskSpace)
-  Js.log((belowTenThousand, smallestToRemove))
-
-  // let mapped = Belt.Map.String.empty
-  // let test = Belt.Map.String.set(mapped, "foo", "bar")
-  // let test = Belt.Map.String.set(test, "foo", "boz")
 
   (belowTenThousand, smallestToRemove)
 }
