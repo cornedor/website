@@ -39,7 +39,7 @@ let rec findMarker = (
 }
 
 let main = () => {
-  (findMarker(DaySixData.data, None, 0, 4), findMarker(DaySixData.data, None, 0, 14))
+  (findMarker(DaySixInput.data, None, 0, 4), findMarker(DaySixInput.data, None, 0, 14))
 }
 
 exception Incorrect_Result
