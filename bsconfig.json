@@ -15,7 +15,9 @@
     "@opendevtools/rescript-intl",
     "@glennsl/rescript-fetch",
     "@ryyppy/rescript-promise",
-    "rescript-next"
+    "@glennsl/rescript-json-combinators",
+    "rescript-next",
+    "rescript-url"
   ],
   "reason": {
     "react-jsx": 3
@@ -26,10 +28,11 @@
   },
   "suffix": ".bs.js",
   "bsc-flags": ["-bs-super-errors"],
-  "refmt": 3,
   "gentypeconfig": {
     "language": "typescript",
     "shims": {},
+    "generatedFileExtension": ".gen.tsx",
+    "module": "es6",
     "debug": {
       "all": false,
       "basic": false

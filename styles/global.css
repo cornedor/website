@@ -448,3 +448,56 @@ p {
   flex-direction: row;
 }
 
+
+/* Marketdata */
+
+.marketdata {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  flex-wrap: no-wrap;
+  overflow: auto;
+  height: 500px;
+  margin: 40px auto;
+  max-width: 900px;
+  border: solid var(--color-secondary) 2px;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.marketdata-bar {
+  background: var(--color-primary);
+  width: 30px;
+  position: absolute;
+  bottom: 0;
+}
+
+.marketdata-date {
+  position: absolute;
+  transform-origin: bottom left;
+  transform: rotate(30deg);
+  bottom: -30px;
+  left: 0;
+  white-space: nowrap;
+}
+
+.marketdata-price {
+  position: absolute;
+  transform-origin: bottom left;
+  transform: rotate(-90deg);
+  bottom: 10px;
+  left: 28px;
+  font-family: monospace;
+}
+
+.marketdata-entry {
+  height: 400px;
+  width: 30px;
+  background: var(--color-secondary);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.marketdata-entry-past {
+  opacity: 0.4;
+}
