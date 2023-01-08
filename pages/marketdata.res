@@ -8,48 +8,54 @@ type marketData = {
   "tillDate": string,
 }
 
-let printPrice = (value) => {
-  Intl.NumberFormat.Currency.make(~value=value, ~locale=Some("nl"), ~currency="EUR", ())
+let printPrice = value => {
+  Intl.NumberFormat.Currency.make(~value, ~locale=Some("nl"), ~currency="EUR", ())
 }
 
-let printDate = (date) => {
+let printDate = date => {
   Intl.DateTime.make(
     ~locale=Some("sv"),
     ~date,
-    ~options=
-      Intl.DateTime.Options.make(
-        ~timeStyle=Some(#short),
-        (),
-      ),
+    ~options=Intl.DateTime.Options.make(~timeStyle=Some(#short), ()),
     (),
-  );
-
+  )
 }
 
 @react.component
 let make = (~marketData: Js.Nullable.t<marketData>, ~incorrectJson) => {
   switch Js.Nullable.toOption(marketData) {
   | Some(marketData) => {
-      let max = Belt.Array.reduce(marketData["prices"], 0.0, (acc, price) => 
+      let max = Belt.Array.reduce(marketData["prices"], 0.0, (acc, price) =>
         max(acc, price["price"])
       )
 
       let prices = Belt.Array.map(marketData["prices"], price => {
         let height = price["price"] /. max *. 100.0
-        let date = Js.Date.fromString(price["readingDate"]);
+        let date = Js.Date.fromString(price["readingDate"])
         let nowHour = Js.Date.getHours(Js.Date.make())
         let entryHour = Js.Date.getHours(date)
-        let isPast =  entryHour < nowHour
-        let diff = Belt.Float.toString(entryHour -. nowHour)
+        let nowDay = Js.Date.getDate(Js.Date.make())
+        let entryDay = Js.Date.getDate(date)
+        let isTomorrow = entryDay > nowDay
+        let isPast = entryHour < nowHour && entryDay <= nowDay
+        let diff = Belt.Float.toString(entryHour -. nowHour +. (isTomorrow ? 24.0 : 0.0))
 
         <div className={"marketdata-entry" ++ (isPast ? " marketdata-entry-past" : "")}>
-          <div className="marketdata-bar" style={ReactDOM.Style.make(~height=`${Belt.Float.toString(height)}%`, ())} />
+          <div
+            className="marketdata-bar"
+            style={ReactDOM.Style.make(~height=`${Belt.Float.toString(height)}%`, ())}
+          />
           <div className="marketdata-price"> {React.string(printPrice(price["price"]))} </div>
           <div className="marketdata-date"> {React.string(printDate(date) ++ ` +${diff}`)} </div>
         </div>
       })
 
-      <div className="marketdata"> {React.array(prices)} </div>
+      <div>
+        <Next.Head>
+          <link href="/marketdata-manifest.json" rel="manifest" />
+        </Next.Head>
+        <div className="marketdata"> {React.array(prices)} </div>
+      </div>
     }
 
   | None => {

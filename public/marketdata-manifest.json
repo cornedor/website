@@ -1,0 +1,11 @@
+{
+  "short_name": "Marketdata",
+  "name": "Marketdata",
+  "id": "/marketdata?source=pwa",
+  "start_url": "/marketdata?source=pwa",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "orientation": "portrait",
+  "scope": "/marketdata",
+  "theme_color": "#ffffff"
+}
