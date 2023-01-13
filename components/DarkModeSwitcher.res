@@ -1,20 +1,17 @@
 @val external localStorageSetItem: (string, string) => unit = "localStorage.setItem"
-@val external preferencesConsent: bool = "Cookiebot.consent.preferences"
 @val external getLightOrDarkMode: unit => string = "global.getLightOrDarkMode"
 @val external updateDarkModeProperties: unit => unit = "global.updateDarkModeProperties"
 
 let handleLightSwitchClick = _ => {
   let currentMode: string = getLightOrDarkMode()
 
-  if preferencesConsent {
-    localStorageSetItem(
-      "color-mode",
-      switch currentMode {
-      | "dark" => "light"
-      | _ => "dark"
-      },
-    )
-  }
+  localStorageSetItem(
+    "color-mode",
+    switch currentMode {
+    | "dark" => "light"
+    | _ => "dark"
+    },
+  )
 
   updateDarkModeProperties()
 }
