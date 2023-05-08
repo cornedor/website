@@ -95,8 +95,6 @@ let parseMarketData = json => {
 let getServerSideProps = () => {
   open Fetch
 
-  let base = URL.make("https://api.energyzero.nl/v1/energyprices")
-
   let now = Js.Date.make()
 
   let from = Js.Date.makeWithYMDHMS(
@@ -126,7 +124,8 @@ let getServerSideProps = () => {
     "inclBtw": true,
   })
 
-  let url = URL.toString(base) ++ "?" ++ URLSearchParams.toString(searchParams)
+  let url =
+    "https://api.energyzero.nl/v1/energyprices" ++ "?" ++ URLSearchParams.toString(searchParams)
 
   // let url = "http://localhost:3000/testdata.json"
 

@@ -16,8 +16,7 @@
     "@glennsl/rescript-fetch",
     "@ryyppy/rescript-promise",
     "@glennsl/rescript-json-combinators",
-    "rescript-next",
-    "rescript-url"
+    "rescript-next"
   ],
   "reason": {
     "react-jsx": 3
