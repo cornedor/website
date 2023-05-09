@@ -1,5 +1,8 @@
 import Document, { Head, Html, Main, NextScript } from 'next/document'
 import Script from 'next/script'
+import { body, title } from '../components/fonts'
+import { CSSProperties } from 'react'
+import DarkModeManager from '../components/dark-mode-manager'
 
 export default class MyDocument extends Document {
   render() {

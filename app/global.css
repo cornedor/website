@@ -1,0 +1,500 @@
+html {
+  --gradient: linear-gradient(
+    180deg,
+    rgba(140, 73, 207, 0.25) 0%,
+    rgba(140, 72, 207, 0.05) 100%
+  );
+
+  --font-title: 'Pacifico', cursive;
+  --font-body: 'Balsamiq Sans', sans-serif;
+  --gray: #999;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-body);
+  line-height: 1.5;
+  font-size: 18px;
+
+  color: var(--color-text);
+  background: var(--color-background);
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+p {
+  padding: 10px 0;
+  margin: 0;
+}
+
+/* Styles that are available on every page */
+
+/* Layout */
+.header {
+  padding: 20px 40px 0;
+  height: 180px;
+  background: var(--gradient);
+}
+
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1152px;
+  margin: 0 auto;
+}
+
+.headerName {
+  font-family: var(--font-title);
+  font-size: 32px;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+}
+
+.hamburger {
+  display: none;
+}
+
+@media (max-width: 500px) {
+  .navLinks {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    flex-direction: column;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    padding: 1em;
+    align-items: flex-start;
+
+    background: var(--color-background) var(--gradient);
+  }
+
+  .navLinks-open {
+    display: flex;
+  }
+
+  .lightSwitch {
+    margin-left: 25px;
+  }
+
+  .hamburger {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 20;
+    height: 15px;
+    width: 20px;
+    border: none;
+    background: none;
+    padding: 0;
+    flex-direction: column;
+    cursor: pointer;
+  }
+
+  .hamburger span {
+    background: var(--color-primary);
+    height: 2px;
+    width: 100%;
+  }
+}
+
+.navLink {
+  padding: 10px;
+  margin-left: 16px;
+}
+
+.navLink:last-of-type {
+  padding-right: 0;
+}
+
+.main {
+  position: relative;
+  background: var(--color-background);
+}
+
+.content {
+  max-width: 792px;
+  padding: 40px 10px;
+  margin: 0 auto;
+}
+
+/* see @media min-width 500px */
+
+.pageTop {
+  position: absolute;
+  width: 100%;
+  max-height: 52px;
+  height: 8vw;
+  bottom: 100%;
+  object-fit: fill;
+  color: var(--color-background, white);
+}
+
+/* Blog */
+.blogLink {
+  color: inherit;
+}
+
+.blogLinkTime,
+.subtleText {
+  color: var(--gray);
+  font-size: smaller;
+}
+
+/* Button */
+.button {
+  background-color: var(--color-primary);
+  border: none;
+  padding: 5px 10px;
+  box-shadow: 3px 5px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  font-size: inherit;
+}
+
+.button:hover {
+  opacity: 0.8;
+}
+
+/* Light switch */
+.lightSwitchIcons {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 10px;
+  width: 1em;
+  transition: 320ms cubic-bezier(0.445, 0.05, 0.55, 0.95) transform;
+  transform: translateY(var(--light-switch-icon-start-pos));
+}
+
+.lightSwitch {
+  padding: 10px 10px 10px 0;
+  margin-left: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  overflow: hidden;
+  box-sizing: content-box;
+  height: 24px;
+  color: var(--color-primary);
+}
+
+.lightSwitch:hover .lightSwitchIcons {
+  transform: translateY(var(--light-switch-icon-end-pos));
+}
+
+/* Titles */
+.title {
+  font-size: 32px;
+  font-weight: normal;
+  text-align: center;
+  padding: 0 0 20px;
+  margin: 0;
+  font-family: var(--font-title);
+}
+
+.subtitle {
+  font-size: 24px;
+  font-weight: normal;
+  padding: 26px 0 10px;
+  margin: 0;
+  font-family: var(--font-body);
+}
+
+@media (min-width: 500px) {
+  .content {
+    padding: 40px;
+  }
+}
+
+/* @TODO: move to css modules */
+.RCounter_counter {
+  background: #ddd;
+  color: black;
+  display: inline-block;
+  padding: 5px 10px;
+}
+
+.heightTest {
+  height: 80vh;
+  background: url(https://cdn.corne.info/crop?type=auto&stripmeta=true&url=https://i.redd.it/hzfuwxc84h971.jpg&quality=95&width=1080&height=1080);
+  background-size: cover;
+  background-position: center center;
+  padding: 20px;
+}
+
+.heightTest span {
+  background: white;
+  color: black;
+  padding: 2px;
+}
+
+.heightTestSpacer {
+  height: 80vh;
+}
+
+.heightTestFixedTop,
+.heightTestFixedBottom {
+  position: fixed;
+  right: 10px;
+  padding: 10px;
+  background: red;
+  color: white;
+}
+.heightTestFixedTop {
+  top: 10px;
+}
+
+.heightTestFixedBottom {
+  bottom: 10px;
+}
+
+.siteFooter {
+  padding-top: 60px;
+  padding-bottom: 40px;
+  color: var(--gray);
+  text-align: center;
+  font-size: 14px;
+}
+
+.commonIcons {
+  display: none;
+}
+
+/* Fediverse */
+.fedi {
+  margin-left: 0;
+  margin-top: 20px;
+
+  --avatar-size: 64px;
+  --content-offset: calc(0px - var(--avatar-size) - 20px);
+}
+
+@media (min-width: 1200px) {
+  .fedi {
+    margin-left: -140px;
+  }
+}
+
+.fedi_status {
+  flex-direction: row;
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  border: solid thin var(--color-secondary);
+  box-shadow: 0 2px 6px var(--color-secondary);
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.fedi_statusAvatarImg {
+  border-radius: 3px;
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+}
+
+.fedi_statusMedia {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-left: var(--content-offset);
+}
+
+.fedi_statusMediaImg {
+  border-radius: 6px;
+  border: solid 2px var(--color-secondary);
+  object-fit: cover;
+  width: 100px;
+  height: auto;
+  aspect-ratio: 9 / 6;
+}
+
+.fedi_statusMediaVideo {
+  border-radius: 6px;
+  border: solid 2px var(--color-secondary);
+  object-fit: cover;
+  width: 80%;
+  height: auto;
+  aspect-ratio: 9 / 6;
+}
+
+.fedi_textWithIcon {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.fedi_statusReblogged {
+  font-size: smaller;
+  color: var(--color-green);
+}
+
+.fedi_content {
+  margin-left: var(--content-offset);
+}
+
+.fedi_content a {
+  word-break: break-word;
+}
+
+.fedi_content p {
+  font-size: inherit;
+}
+
+.fedi_meta {
+  display: flex;
+  gap: 20px;
+}
+
+.fedi_statusContent {
+  flex: 1;
+}
+
+.fedi_statusInfo {
+  min-height: calc(var(--avatar-size) + 20px);
+}
+
+@media (min-width: 600px) {
+  .fedi {
+    --avatar-size: 100px;
+  }
+
+  .fedi_statusMediaImg {
+    width: 200px;
+  }
+
+  .fedi_statusReblogged {
+    float: right;
+  }
+
+  .fedi_content {
+    margin-left: 0px;
+  }
+
+  .fedi_statusMedia {
+    margin-left: 0px;
+  }
+
+  .fedi_statusInfo {
+    min-height: auto;
+  }
+}
+
+/* AOC22 */
+
+.aoc22-crate {
+  width: 30px;
+  height: 30px;
+  border: black solid 1px;
+  background: #bd8a59;
+  font-weight: bolder;
+  text-align: center;
+  display: block;
+}
+
+.aoc22-indicator {
+  width: 30px;
+  height: 30px;
+  border: transparent solid 2px;
+  background: #eee;
+  text-align: center;
+}
+
+.aoc22-stack {
+  display: flex;
+  gap: 4px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.aoc22-floating .aoc22-stack {
+  justify-content: flex-end;
+}
+
+.aoc22-crate:first-child {
+  border: black solid 2px;
+  background: #ffa24b;
+  display: block;
+}
+
+.aoc22-stacks {
+  display: flex;
+  gap: 4px;
+  flex-direction: row;
+}
+
+/* Marketdata */
+
+.marketdata {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  flex-wrap: no-wrap;
+  overflow: auto;
+  height: 500px;
+  margin: 40px auto;
+  max-width: 900px;
+  border: solid var(--color-secondary) 2px;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.marketdata-bar {
+  background: var(--color-primary);
+  width: 30px;
+  position: absolute;
+  bottom: 0;
+}
+
+.marketdata-date {
+  position: absolute;
+  transform-origin: bottom left;
+  transform: rotate(30deg);
+  bottom: -30px;
+  left: 0;
+  white-space: nowrap;
+}
+
+.marketdata-price {
+  position: absolute;
+  transform-origin: bottom left;
+  transform: rotate(-90deg);
+  bottom: 10px;
+  left: 28px;
+  font-family: monospace;
+}
+
+.marketdata-entry {
+  height: 400px;
+  width: 30px;
+  background: var(--color-secondary);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.marketdata-entry-past {
+  opacity: 0.4;
+}
