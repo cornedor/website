@@ -1,3 +1,5 @@
+@@directive("'use client';")
+
 @val external localStorageSetItem: (string, string) => unit = "localStorage.setItem"
 @val external getLightOrDarkMode: unit => string = "global.getLightOrDarkMode"
 @val external updateDarkModeProperties: unit => unit = "global.updateDarkModeProperties"
@@ -19,7 +21,10 @@ let handleLightSwitchClick = _ => {
 @react.component
 let make = () => {
   <button className="lightSwitch" ariaLabel="Switch light mode" onClick=handleLightSwitchClick>
-    <div className="lightSwitchIcons"> <MoonIcon /> <SunIcon /> </div>
+    <div className="lightSwitchIcons">
+      <MoonIcon />
+      <SunIcon />
+    </div>
   </button>
 }
 

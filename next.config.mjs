@@ -14,18 +14,19 @@ import nextMdx from '@next/mdx'
 
 
 const transpileModules = ["rescript", 'refractor'].concat(bsconfig["bs-dependencies"]);
-const withTM = nextTranspileModules(transpileModules)
+// const withTM = nextTranspileModules(transpileModules)
 
 const withMDX = nextMdx({
   extension: /\.mdx?$/,
   options: {
     remarkPlugins: [remarkFrontmatter],
     rehypePlugins: [],
-    providerImportSource: "@mdx-js/react",
+    // providerImportSource: "@mdx-js/react",
   },
 })
 
 
-export default withTM(withSourceMaps(withMDX({
+export default withSourceMaps(withMDX({
+  transpilePackages: transpileModules,
   pageExtensions: ['jsx', 'js', 'bs.js', 'ts', 'tsx', 'md', 'mdx'],
-})));
+}));

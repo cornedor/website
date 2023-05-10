@@ -1,6 +1,5 @@
 @react.component
 let make = (~children, ~title) => {
-  let (menuOpen, setMenuOpen) = React.useState(_ => false)
   // let router = Next.Router.useRouter()
 
   <div className="container">
@@ -12,18 +11,13 @@ let make = (~children, ~title) => {
         <Next.Link href="/" className="headerName">
           {React.string(j`Corné Dorrestijn`)}
         </Next.Link>
-        <button onClick={_ => setMenuOpen(s => !s)} className="hamburger" ariaLabel="Switch menu">
-          <span />
-          <span />
-          <span />
-        </button>
-        <nav className={"navLinks" ++ (menuOpen ? " navLinks-open" : "")}>
+        <LayoutMenu>
           <DarkModeSwitcher />
           <Next.Link href="/fediverse" className="navLink"> {React.string("Fediverse")} </Next.Link>
           <Next.Link href="/posts" className="navLink"> {React.string("Blog")} </Next.Link>
           <Next.Link href="/snippets" className="navLink"> {React.string("Snippets")} </Next.Link>
           <Next.Link href="/" className="navLink"> {React.string("About Me")} </Next.Link>
-        </nav>
+        </LayoutMenu>
       </div>
     </header>
     <main className="main">
