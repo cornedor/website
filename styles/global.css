@@ -5,8 +5,8 @@
     rgba(140, 72, 207, 0.05) 100%
   );
 
-  --font-title: 'Pacifico', cursive;
-  --font-body: 'Balsamiq Sans', sans-serif;
+  /* --font-title: 'Pacifico', cursive; */
+  /* --font-body: 'Balsamiq Sans', sans-serif; */
   --gray: #999;
 }
 
@@ -288,7 +288,7 @@ p {
   margin-top: 20px;
 
   --avatar-size: 64px;
-  --content-offset: calc(0px - var(--avatar-size) - 20px)
+  --content-offset: calc(0px - var(--avatar-size) - 20px);
 }
 
 @media (min-width: 1200px) {
@@ -340,7 +340,7 @@ p {
   aspect-ratio: 9 / 6;
 }
 
-.fedi_textWithIcon  {
+.fedi_textWithIcon {
   display: flex;
   gap: 6px;
   align-items: center;
@@ -389,7 +389,6 @@ p {
     float: right;
   }
 
-
   .fedi_content {
     margin-left: 0px;
   }
@@ -402,7 +401,6 @@ p {
     min-height: auto;
   }
 }
-
 
 /* AOC22 */
 
@@ -447,7 +445,6 @@ p {
   gap: 4px;
   flex-direction: row;
 }
-
 
 /* Marketdata */
 

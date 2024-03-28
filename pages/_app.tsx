@@ -1,3 +1,4 @@
+import '../components/fonts'
 import '../styles/global.css'
 import '../styles/prism.css'
 import { AppProps } from 'next/app'

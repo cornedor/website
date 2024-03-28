@@ -13,13 +13,23 @@ let handleLightSwitchClick = _ => {
     },
   )
 
+  Plausible.plausibleWithOptions(
+    "Toggle Light",
+    {
+      props: {"color": currentMode},
+    },
+  )
+
   updateDarkModeProperties()
 }
 
 @react.component
 let make = () => {
   <button className="lightSwitch" ariaLabel="Switch light mode" onClick=handleLightSwitchClick>
-    <div className="lightSwitchIcons"> <MoonIcon /> <SunIcon /> </div>
+    <div className="lightSwitchIcons">
+      <MoonIcon />
+      <SunIcon />
+    </div>
   </button>
 }
 
