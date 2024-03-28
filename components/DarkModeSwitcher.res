@@ -13,12 +13,7 @@ let handleLightSwitchClick = _ => {
     },
   )
 
-  Plausible.plausibleWithOptions(
-    "Toggle Light",
-    {
-      props: {"color": currentMode},
-    },
-  )
+  let _ = %raw(`window?.plausible('Toggle Light', { props: { color: localStorage.getItem('color-mode') } })`)
 
   updateDarkModeProperties()
 }
