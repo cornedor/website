@@ -40,9 +40,12 @@ export default function App({ Component, pageProps }: AppProps) {
         data-domain="corne.info"
         src="https://p.cd0.nl/js/script.js"
       />
-      <main className={`${balsamiq.variable} ${pacifico.variable}`}>
+      <div
+        className={`${pacifico.variable} ${balsamiq.variable}`}
+        style={balsamiq.style}
+      >
         <Component {...pageProps} />
-      </main>
+      </div>
     </MDXProvider>
   )
 }
