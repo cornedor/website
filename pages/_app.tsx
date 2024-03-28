@@ -28,6 +28,11 @@ export default function App({ Component, pageProps }: AppProps) {
       <Head>
         <DarkModeManager />
       </Head>
+      <Script
+        id="plausible"
+        data-domain="corne.info"
+        src="https://p.cd0.nl/js/script.js"
+      />
       <Component {...pageProps} />
     </MDXProvider>
   )
