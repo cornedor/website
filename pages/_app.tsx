@@ -1,4 +1,4 @@
-import '../components/fonts'
+import { balsamiq, pacifico } from '../components/fonts'
 import '../styles/global.css'
 import '../styles/prism.css'
 import { AppProps } from 'next/app'
@@ -34,7 +34,9 @@ export default function App({ Component, pageProps }: AppProps) {
         data-domain="corne.info"
         src="https://p.cd0.nl/js/script.js"
       />
-      <Component {...pageProps} />
+      <main className={`${balsamiq.variable} ${pacifico.variable}`}>
+        <Component {...pageProps} />
+      </main>
     </MDXProvider>
   )
 }

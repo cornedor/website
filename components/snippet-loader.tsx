@@ -26,15 +26,7 @@ const SnippetLoader = ({ children, ...props }: SnippetLoaderProps) => {
   )
 
   return (
-    <>
-      <Head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@500&amp;display=swap"
-          rel="stylesheet"
-        />
-      </Head>
-      {lang ? <Snippet {...snippetProps} fallback={fallback} /> : fallback}
-    </>
+    <>{lang ? <Snippet {...snippetProps} fallback={fallback} /> : fallback}</>
   )
 }
 

@@ -1,5 +1,6 @@
 import Refractor from 'react-refractor'
 import { useEffect, useState } from 'react'
+import { dmMono } from './fonts'
 
 export type SnippetProps = Refractor.Props
 
@@ -27,7 +28,7 @@ const Snippet = ({ language, ...props }: Refractor.Props) => {
       {...props}
       language={language}
       inline
-      className={`language-${language}`}
+      className={`language-${language} ${dmMono.variable}`}
     />
   ) : (
     // <pre className="language-clike">
