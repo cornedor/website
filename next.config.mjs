@@ -7,14 +7,14 @@
 // const remarkFrontmatter = import('remark-frontmatter/index')
 
 import bsconfig from './bsconfig.json' assert {type: "json"}
-import nextTranspileModules from 'next-transpile-modules'
+// import nextTranspileModules from 'next-transpile-modules'
 import withSourceMaps from '@zeit/next-source-maps'
 import remarkFrontmatter from 'remark-frontmatter'
 import nextMdx from '@next/mdx'
 
 
 const transpileModules = ["rescript", 'refractor'].concat(bsconfig["bs-dependencies"]);
-const withTM = nextTranspileModules(transpileModules)
+// const withTM = nextTranspileModules(transpileModules)
 
 const withMDX = nextMdx({
   extension: /\.mdx?$/,
@@ -26,6 +26,7 @@ const withMDX = nextMdx({
 })
 
 
-export default withTM(withSourceMaps(withMDX({
+export default withSourceMaps(withMDX({
   pageExtensions: ['jsx', 'js', 'bs.js', 'ts', 'tsx', 'md', 'mdx'],
-})));
+  transpilePackages: transpileModules
+}));
